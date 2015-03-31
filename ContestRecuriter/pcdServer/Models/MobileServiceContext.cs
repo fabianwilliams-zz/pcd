@@ -29,6 +29,9 @@ namespace pcdServer.Models
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<GiveAway> GiveAways { get; set; }
+        public DbSet <GEntry> GEntries { get; set; }
+        public DbSet<Participant> Participants { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,6 +45,7 @@ namespace pcdServer.Models
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Mobile.Service;
+﻿using System;
+using Microsoft.WindowsAzure.Mobile.Service;
 
 namespace pcdServer.DataObjects
 {
