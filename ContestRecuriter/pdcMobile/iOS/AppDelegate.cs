@@ -13,6 +13,9 @@ namespace pdcMobile.iOS
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init ();
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			SQLitePCL.CurrentPlatform.Init(); 
+
 
 			LoadApplication (new App ());
 
