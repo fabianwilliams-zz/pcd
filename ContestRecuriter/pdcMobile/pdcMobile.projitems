@@ -10,5 +10,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)pdcMobile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ShowPrizes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataServices\GiveAwayService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataObjects\GiveAway.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HelperUtils\GiftCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PrizeDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ContestEntryAdd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataServices\GEntryService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DataServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DataObjects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)HelperUtils\" />
   </ItemGroup>
 </Project>
