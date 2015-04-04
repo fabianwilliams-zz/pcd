@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using UIKit;
 
 namespace pdcMobile
 {
 	public class PrizeDetail : ContentPage
 	{
+		private GEntryService gService = new GEntryService();
+
 		public PrizeDetail (GiveAway ga)
 		{
 			Padding = new Thickness (0, Device.OnPlatform (20, 10, 10), 0, 0);
@@ -46,18 +49,14 @@ namespace pdcMobile
 			drawingButton.Clicked += async (object sender, EventArgs e) => {
 				try 
 				{
-					Navigation.PushAsync(new ContestEntryAdd());
+					await Navigation.PushAsync(new ParticipantAdd());
 				} 
 				catch (Exception ex) 
 				{
-					
-				}
-				finally
-				{
-
+					Console.Error.WriteLine (@"ERROR {0}", ex.Message);
+				
 				}
 			};
-					
 
 			Content = new ScrollView {
 				Content = new StackLayout {
@@ -66,6 +65,20 @@ namespace pdcMobile
 				}
 			};
 
+		}
+		private async Task CheckUserAuth()
+		{
+			if (gService.User == null)
+			{
+				await gService.IsAuthenticated();
+				if (gService.User == null) {
+					await Navigation.PushAsync (new ParticipantAdd ()); //Push the User to 
+					Console.WriteLine ("couldn't login!!");
+					return;
+				} else {
+					await Navigation.PushAsync (new ContestEntryAdd ());
+				}
+			}
 		}
 	}
 }

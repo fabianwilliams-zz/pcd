@@ -17,12 +17,11 @@ namespace pdcMobile
 {
 	public class GiveAwayService
 	{
-
+		
 		private MobileServiceClient MobileService = new MobileServiceClient(
 			"https://pcdserver.azure-mobile.net/",
 			"OLJpreavvHyJUHafYxKmRvafIhjqvY37"
 		);
-
 
 		public List<GiveAway> Items { get; private set;}
 
