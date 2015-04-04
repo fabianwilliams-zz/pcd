@@ -6,9 +6,11 @@ using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
 using pcdServer.DataObjects;
 using pcdServer.Models;
+using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 namespace pcdServer.Controllers
 {
+    [AuthorizeLevel(AuthorizationLevel.User)]
     public class GEntryController : TableController<GEntry>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
