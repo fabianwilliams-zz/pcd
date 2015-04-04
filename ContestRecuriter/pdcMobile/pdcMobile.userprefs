@@ -1,12 +1,12 @@
 ﻿<Properties StartupItem="iOS/pdcMobile.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/ParticipantAdd.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataServices/GEntryService.cs">
     <Files>
-      <File FileName="Views/ContestEntryAdd.cs" Line="28" Column="1" />
-      <File FileName="DataServices/GEntryService.cs" Line="55" Column="61" />
-      <File FileName="Views/ParticipantAdd.cs" Line="30" Column="38" />
-      <File FileName="Views/PrizeDetail.cs" Line="13" Column="1" />
-      <File FileName="Views/ShowPrizes.cs" Line="28" Column="1" />
+      <File FileName="Views/ContestEntryAdd.cs" Line="1" Column="1" />
+      <File FileName="DataServices/GEntryService.cs" Line="36" Column="99" />
+      <File FileName="Views/ParticipantAdd.cs" Line="28" Column="32" />
+      <File FileName="Views/PrizeDetail.cs" Line="42" Column="1" />
+      <File FileName="Views/ShowPrizes.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

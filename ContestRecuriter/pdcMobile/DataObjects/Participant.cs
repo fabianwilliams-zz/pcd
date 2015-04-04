@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using Microsoft.WindowsAzure.MobileServices;
+
 
 namespace pdcMobile
 {
 	public class Participant
 	{
+		public String Id { get; set;}
 		public string UserSocialID { get; set; }
 		public string UserSocialName { get; set; }
 		public string Name { get; set; }

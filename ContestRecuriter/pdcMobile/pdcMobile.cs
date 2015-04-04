@@ -22,6 +22,11 @@ namespace pdcMobile
 			MainPage = new NavigationPage(new HomePage());
 		}
 
+		public static Page GetMainPage()
+		{
+			return new NavigationPage (new HomePage ());
+		}
+
 		protected override void OnStart ()
 		{
 			// Handle when your app starts

@@ -49,7 +49,15 @@ namespace pdcMobile
 			drawingButton.Clicked += async (object sender, EventArgs e) => {
 				try 
 				{
+					await gService.SyncAsync();
+					if (gService.User == null)
+					{
 					await Navigation.PushAsync(new ParticipantAdd());
+					}
+					else
+					{
+						await Navigation.PushAsync(new ContestEntryAdd());
+					}
 				} 
 				catch (Exception ex) 
 				{
@@ -66,20 +74,20 @@ namespace pdcMobile
 			};
 
 		}
-		private async Task CheckUserAuth()
-		{
-			if (gService.User == null)
-			{
-				await gService.IsAuthenticated();
-				if (gService.User == null) {
-					await Navigation.PushAsync (new ParticipantAdd ()); //Push the User to 
-					Console.WriteLine ("couldn't login!!");
-					return;
-				} else {
-					await Navigation.PushAsync (new ContestEntryAdd ());
-				}
-			}
-		}
+//		private async Task CheckUserAuth()
+//		{
+//			if (gService.User == null)
+//			{
+//				await gService.IsAuthenticated(this);
+//				if (gService.User == null) {
+//					await Navigation.PushAsync (new ParticipantAdd ()); //Push the User to 
+//					Console.WriteLine ("couldn't login!!");
+//					return;
+//				} else {
+//					await Navigation.PushAsync (new ContestEntryAdd ());
+//				}
+//			}
+//		}
 	}
 }
 

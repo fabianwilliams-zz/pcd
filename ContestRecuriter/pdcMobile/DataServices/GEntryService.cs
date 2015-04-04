@@ -33,7 +33,7 @@ namespace pdcMobile
 		{
 			if(this.MobileService.CurrentUser == null)
 			{
-				await this.MobileService.LoginAsync(App.UIContext, MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory);
+				user = await this.MobileService.LoginAsync(App.UIContext, MobileServiceAuthenticationProvider.Twitter);
 			}
 
 			return this.MobileService.CurrentUser != null;                
