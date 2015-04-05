@@ -19,7 +19,10 @@ namespace pdcMobile.Droid
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
-			LoadApplication (new App ());
+			App.UIContext = this;
+			SetPage (App.GetMainPage ());
+
+//			LoadApplication (new App ());
 		}
 	}
 }

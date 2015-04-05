@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using UIKit;
+//using UIKit;
 #if __IOS__
 using UIContext = UIKit.UIViewController;
 #elif __ANDROID__

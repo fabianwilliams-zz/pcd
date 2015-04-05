@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using UIKit;
+//using UIKit;
 
 namespace pdcMobile
 {
 	public class PrizeDetail : ContentPage
 	{
 		private GEntryService gService = new GEntryService();
-		public List<Participant> currPar = new List<Participant>();
+		private List<Participant> currPar = new List<Participant>();
+		private List<GEntry> myEntry = new List<GEntry>();
 
 		public PrizeDetail (GiveAway ga)
 		{
@@ -55,13 +56,21 @@ namespace pdcMobile
 					{
 						if (gService.Contestant.Count > 0)
 						{
-							//Console.WriteLine(gService.Contestant[0].UserSocialID);
-							var currPar = gService.Contestant;
-							await Navigation.PushAsync(new ContestEntryAdd(currPar as Participant));
+							currPar = (new List<Participant>(gService.Contestant));
+							//build the Contest Entry
+							var myTix = new GEntry {
+								UserSocialID = gService.User.UserId.ToString(),
+								AssetTag = ga.AssetTag.ToString(),
+								ShortName = ga.ShortName.ToString()
+							};
+							await gService.InsertGEntryAsync(myTix);
+							//myEntry.Add(myTix);
+							//Contest Oficially Entered Now
+							await Navigation.PushAsync(new ContestEntryAdd(currPar));
 						}
 						else
 						{
-							await Navigation.PushAsync(new ParticipantAdd());
+							await Navigation.PushAsync(new ParticipantAdd(gService.User.UserId.ToString()));
 						}
 					}
 				} 
