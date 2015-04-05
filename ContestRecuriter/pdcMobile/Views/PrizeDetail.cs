@@ -11,6 +11,7 @@ namespace pdcMobile
 	public class PrizeDetail : ContentPage
 	{
 		private GEntryService gService = new GEntryService();
+		public List<Participant> currPar = new List<Participant>();
 
 		public PrizeDetail (GiveAway ga)
 		{
@@ -50,13 +51,18 @@ namespace pdcMobile
 				try 
 				{
 					await gService.SyncAsync();
-					if (gService.User == null)
+					if (gService.User != null)
 					{
-					await Navigation.PushAsync(new ParticipantAdd());
-					}
-					else
-					{
-						await Navigation.PushAsync(new ContestEntryAdd());
+						if (gService.Contestant.Count > 0)
+						{
+							//Console.WriteLine(gService.Contestant[0].UserSocialID);
+							var currPar = gService.Contestant;
+							await Navigation.PushAsync(new ContestEntryAdd(currPar as Participant));
+						}
+						else
+						{
+							await Navigation.PushAsync(new ParticipantAdd());
+						}
 					}
 				} 
 				catch (Exception ex) 
@@ -74,20 +80,6 @@ namespace pdcMobile
 			};
 
 		}
-//		private async Task CheckUserAuth()
-//		{
-//			if (gService.User == null)
-//			{
-//				await gService.IsAuthenticated(this);
-//				if (gService.User == null) {
-//					await Navigation.PushAsync (new ParticipantAdd ()); //Push the User to 
-//					Console.WriteLine ("couldn't login!!");
-//					return;
-//				} else {
-//					await Navigation.PushAsync (new ContestEntryAdd ());
-//				}
-//			}
-//		}
 	}
 }
 

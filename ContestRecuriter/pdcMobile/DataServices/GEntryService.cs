@@ -22,6 +22,10 @@ namespace pdcMobile
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
+
+		public List<GEntry> Items { get; private set;}
+		public List<Participant> Contestant { get; private set; }
+
 		private MobileServiceClient MobileService = new MobileServiceClient(
 			"https://pcdserver.azure-mobile.net/",
 			"OLJpreavvHyJUHafYxKmRvafIhjqvY37"
@@ -34,13 +38,12 @@ namespace pdcMobile
 			if(this.MobileService.CurrentUser == null)
 			{
 				user = await this.MobileService.LoginAsync(App.UIContext, MobileServiceAuthenticationProvider.Twitter);
+				Contestant = await this.FindCurrentContestant (user.UserId);
 			}
 
 			return this.MobileService.CurrentUser != null;                
 		}
 
-		public List<GEntry> Items { get; private set;}
-		public List<Participant> Contestant { get; private set; }
 
 		private IMobileServiceSyncTable<GEntry> gentryTable;
 		private IMobileServiceSyncTable<Participant> pTable;
@@ -49,6 +52,7 @@ namespace pdcMobile
 		{
 			var store = new MobileServiceSQLiteStore("localdata.db");
 			store.DefineTable<GEntry> ();
+			store.DefineTable<Participant> ();
 			await this.MobileService.SyncContext.InitializeAsync(store);
 
 			gentryTable = this.MobileService.GetSyncTable<GEntry>();
@@ -85,13 +89,17 @@ namespace pdcMobile
 			}
 		}
 
-		public async Task<List<Participant>> FindParticipants()
+		public async Task<List<Participant>> FindCurrentContestant(string socUId)
 		{
 			try 
 			{
+				if (user != null)
+				{
 				await SyncAsync(); 
 				Contestant = await pTable
-					.Where (c => c.UserSocialID == user.UserId).ToListAsync();
+					.Where (c => c.UserSocialID == socUId).ToListAsync();
+					//Console.WriteLine(Contestant[0].EmailAddress.ToString());
+				}
 			} 
 			catch (MobileServiceInvalidOperationException e) 
 			{
