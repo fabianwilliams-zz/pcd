@@ -1,15 +1,14 @@
-﻿<Properties StartupItem="iOS/pdcMobile.iOS.csproj">
+﻿<Properties StartupItem="Droid/pdcMobile.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/PrizeDetail.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/ParticipantAdd.cs">
     <Files>
-      <File FileName="pdcMobile.cs" Line="1" Column="1" />
-      <File FileName="Views/HomePage.cs" Line="38" Column="44" />
-      <File FileName="Views/ShowPrizes.cs" Line="16" Column="3" />
-      <File FileName="HelperUtils/GiftCell.cs" Line="16" Column="51" />
-      <File FileName="iOS/AppDelegate.cs" Line="18" Column="4" />
-      <File FileName="Views/PrizeDetail.cs" Line="43" Column="6" />
-      <File FileName="DataObjects/GiveAway.cs" Line="15" Column="35" />
-      <File FileName="DataServices/GiveAwayService.cs" Line="21" Column="1" />
+      <File FileName="DataServices/GEntryService.cs" Line="32" Column="5" />
+      <File FileName="DataServices/GiveAwayService.cs" Line="46" Column="4" />
+      <File FileName="Views/HomePage.cs" Line="1" Column="1" />
+      <File FileName="Views/ShowPrizes.cs" Line="1" Column="1" />
+      <File FileName="Views/PrizeDetail.cs" Line="7" Column="3" />
+      <File FileName="Views/ContestEntryAdd.cs" Line="12" Column="47" />
+      <File FileName="Views/ParticipantAdd.cs" Line="6" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

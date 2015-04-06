@@ -18,6 +18,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\PrizeDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ContestEntryAdd.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataServices\GEntryService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataObjects\GEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataObjects\Participant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ParticipantAdd.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
